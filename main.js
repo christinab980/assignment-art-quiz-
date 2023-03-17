@@ -1,6 +1,7 @@
-const apiUrl = "https://api.artic.edu/api/v1/artworks?limit=40";
+const apiUrl = "https://api.artic.edu/api/v1/artworks?limit=60";
 const view = document.getElementById("output");
 const refreshButton = document.getElementById("refresh");
+const rounds = document.getElementById("round-count");
 
 
 let count = 0;
@@ -30,6 +31,7 @@ fetch(apiUrl)
 const artImg = async() => {
     view.innerHTML = '';
 for(let i = 0; i <4; i++) {
+    refreshButton.innerText = "Next"
     const div = document.createElement('div');
     div.className = 'art-img';
     const artPiece = document.createElement('img');
@@ -42,7 +44,7 @@ for(let i = 0; i <4; i++) {
         console.log(artistName[i])
     })
     shufflePicture();
-    console.log(url);
+    // console.log(url)
 }};
 
 // shuffling images for the refresh button
@@ -54,5 +56,12 @@ const shufflePicture = () => {
         imgUrlArray[random] = temp;
     }
 }
+
+//function for counting rounds 
+// function countingRound() {
+//     if (count >= 0) {
+//       roundCount.innerText = `Round ${count + 1}`
+//     }
+//   }
 
 refreshButton.addEventListener('click', artImg)
