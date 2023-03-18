@@ -1,12 +1,15 @@
- const apiUrl = "https://api.artic.edu/api/v1/artworks?limit=60";
+
+const apiUrl = "https://api.artic.edu/api/v1/artworks?limit=40";
     const view = document.getElementById("output");
     const refreshButton = document.getElementById("refresh");
     const rounds = document.getElementById("round-count");
 
-    let count = 0;
+    let count = 1;
     let imgUrlArray = [];
     let artistName = [];
     let artTitle = [];
+
+
 
     // fetching the images from the API
     fetch(apiUrl)
@@ -26,14 +29,20 @@
 
     // creating images for the Art API
     const artImg = () => {
+
+        
+      
       // check if we've reached the maximum number of rounds
+
       if (count >= 10) {
         refreshButton.innerText = "Game Over";
         return;
+      }else {
+        count++ // increment the round count
       }
-
+      //console.log(imageUrl);
       // update the round count in the UI
-      rounds.innerText = `Round ${count + 1}`;
+      //rounds.innerText = `Round ${count + 1}`;
 
       // clear the output container and shuffle the image URLs
       view.innerHTML = "";
@@ -57,8 +66,7 @@
         });
       }
 
-      // increment the round count
-      count++;
+      
     };
 
     // shuffling images for the refresh button
@@ -72,5 +80,3 @@
     };
 
     refreshButton.addEventListener("click", artImg);
-
-    
