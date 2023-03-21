@@ -51,4 +51,17 @@ img {
 
 img:hover, button:hover {
     cursor: pointer;
-}
+
+#progress-tracker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+    .progress-box {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: red; /* set the initial color */
+  }
