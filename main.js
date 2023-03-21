@@ -80,3 +80,18 @@ const apiUrl = "https://api.artic.edu/api/v1/artworks?limit=40";
     };
 
     refreshButton.addEventListener("click", artImg);
+    const progressBoxes = document.querySelectorAll(".progress-box");
+
+const updateProgressTracker = () => {
+  progressBoxes.forEach((box, index) => {
+    if (index < count) {
+      box.style.backgroundColor = "green"; // set the color for completed rounds
+    } else {
+      box.style.backgroundColor = "red"; // set the color for incomplete rounds
+    }
+  });
+};
+
+// call the updateProgressTracker function after each round
+  // ...
+  updateProgressTracker();
